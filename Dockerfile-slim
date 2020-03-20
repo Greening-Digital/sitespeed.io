@@ -10,6 +10,9 @@ ENV FIREFOX_VERSION 74.0
 
 ENV PATH="/usr/local/bin:${PATH}"
 
+# temporary, used for troubleshooting the docker container
+RUN apt-get update && apt -y install vim
+
 RUN buildDeps='wget bzip2' && apt-get update && apt -y install $buildDeps && \
     # Download and unpack the correct Firefox version
     wget https://ftp.mozilla.org/pub/firefox/releases/${FIREFOX_VERSION}/linux-x86_64/en-US/firefox-${FIREFOX_VERSION}.tar.bz2 && \
